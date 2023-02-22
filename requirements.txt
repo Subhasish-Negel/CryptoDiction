@@ -1,4 +1,6 @@
 numpy~=1.23.5
+pandas-ta~=0.3.14b
+pandas_datareader~=0.10.0
 pandas~=1.5.1
 matplotlib~=3.6.2
 streamlit~=1.14.0
