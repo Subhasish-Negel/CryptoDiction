@@ -160,7 +160,7 @@ elif infoType == 'Stochastic Oscillator':
     # Force lowercase (optional)
     df.columns = [x.lower() for x in df.columns]
     # Construct a 2 x 1 Plotly figure
-    fig2 = plt.figure(figsize=(12, 12))
+    fig2 = plt.figure(figsize=(12, 6))
     fig2 = make_subplots(rows=2, cols=1)
     # price Line
     fig2.add_trace(go.Scatter(x=df.index, y=df['open'], line=dict(color='#ff9900', width=1),
