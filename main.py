@@ -168,7 +168,7 @@ elif infoType == 'Stochastic Oscillator':
 
     # Candlestick chart for pricing
     fig2.add_trace(go.Candlestick(x=df.index, open=df['open'], high=df['high'], low=df['low'],
-                                  close=df['close'], increasing_line_color='#ff9900', decreasing_line_color='red',
+                                  close=df['close'], increasing_line_color='#ff9900', decreasing_line_color='black',
                                   showlegend=False), row=1, col=1)
 
     # Fast Signal (%k)
