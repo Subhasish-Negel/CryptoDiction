@@ -1,4 +1,4 @@
-﻿import numpy as np
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from pandas_datareader import data
@@ -10,7 +10,6 @@ import yfinance as yf
 import pandas_ta as ta
 from plotly.subplots import make_subplots
 from datetime import timedelta
-from datetime import date
 
 st.set_page_config(page_title='CryptoPredict 2.0', page_icon=':chart_with_upwards_trend:')
 st.title('CryptoDiction: CryptoPredict v2')
@@ -85,6 +84,8 @@ TODAY = st.date_input('End(Today)', value=pd.to_datetime("today"))
 
 stock_info = yf.Ticker(user_input).fast_info
 
+# stock_info.keys() for other properties you can explore
+
 
 st.subheader(user_input)
 
@@ -98,13 +99,14 @@ def load_data(user_input):
 
 df = load_data(user_input)
 
+# describing data
 
 st.subheader('Data from 2017-2023')
-
+# df= df.reset_index()
 
 st.write(df.tail(10))
 st.write(df.describe())
-# lowercase (optional)
+# Force lowercase (optional)
 df.columns = [x.lower() for x in df.columns]
 
 st.subheader('Technical Analysis')
@@ -165,17 +167,17 @@ elif infoType == 'Stochastic Oscillator':
 
     # Candlestick chart for pricing
     fig2.add_trace(go.Candlestick(x=df.index, open=df['open'], high=df['high'], low=df['low'],
-                                  close=df['close'], increasing_line_color='#ff9900', decreasing_line_color='black',
+                                  close=df['close'], increasing_line_color='#ff9900', decreasing_line_color='red',
                                   showlegend=False), row=1, col=1)
 
     # Fast Signal (%k)
     fig2.add_trace(go.Scatter(x=df.index, y=df['%k'], line=dict(color='#ff9900', width=2), name='macd',
-                              # showlegend=False,
+                              # show legend=False,
                               legendgroup='2', ), row=2, col=1)
 
     # Slow signal (%d)
-    fig2.add_trace(go.Scatter(x=df.index, y=df['%d'], line=dict(color='#000000', width=2),
-                              # showlegend=False,
+    fig2.add_trace(go.Scatter(x=df.index, y=df['%d'], line=dict(color='#ffffff', width=2),
+                              # show legend=False,
                               legendgroup='2', name='signal'), row=2, col=1)
 
     # Colorize the histogram values
@@ -188,7 +190,7 @@ elif infoType == 'Stochastic Oscillator':
                        width=1000,
                        height=1000, plot_bgcolor='#efefef',
                        # Font Families
-                       font_family='Monospace', font_color='#000000', font_size=20,
+                       font_family='Monospace', font_color='#ffffff', font_size=20,
                        xaxis=dict(
                            rangeslider=dict(visible=True)))
 
@@ -286,7 +288,7 @@ scaler = MinMaxScaler(feature_range=(0, 1))
 data_training_array = scaler.fit_transform(data_training)
 
 # Load model
-model = load_model("model.h5")
+model = load_model("keras_model.h5")
 
 # testing part
 past_100_days = data_training.tail(30)
