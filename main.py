@@ -12,7 +12,7 @@ from plotly.subplots import make_subplots
 from datetime import timedelta
 from sklearn.preprocessing import MinMaxScaler
 
-st.set_page_config(page_title='CryptoPredict 2.0', page_icon=':chart_with_upwards_trend:')
+st.set_page_config(page_title='CryptoPredict 2.0', page_icon='📈')
 st.title('CryptoDiction: CryptoPredict v2')
 st.subheader('Technical Analysis on Crypto Currency Prices & Prediction App')
 
