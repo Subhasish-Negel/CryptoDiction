@@ -1,0 +1,12 @@
+tensorflow-cpu
+numpy
+pandas
+scikit-learn
+keras
+seaborn
+matplotlib
+plotly
+pandas_datareader
+yfinance
+pandas_ta
+tensorflow
