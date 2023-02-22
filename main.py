@@ -191,7 +191,7 @@ elif infoType == 'Stochastic Oscillator':
                        width=1000,
                        height=1000, plot_bgcolor='#efefef',
                        # Font Families
-                       font_family='Monospace', font_color='#ffffff', font_size=12,
+                       font_family='Monospace', font_color='#ffffff', font_size=15,
                        xaxis=dict(
                            rangeslider=dict(visible=True)))
 
