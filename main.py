@@ -10,6 +10,7 @@ import yfinance as yf
 import pandas_ta as ta
 from plotly.subplots import make_subplots
 from datetime import timedelta
+from sklearn.preprocessing import MinMaxScaler
 
 st.set_page_config(page_title='CryptoPredict 2.0', page_icon=':chart_with_upwards_trend:')
 st.title('CryptoDiction: CryptoPredict v2')
@@ -159,7 +160,7 @@ elif infoType == 'Stochastic Oscillator':
     # Force lowercase (optional)
     df.columns = [x.lower() for x in df.columns]
     # Construct a 2 x 1 Plotly figure
-    fig2 = plt.figure(figsize=(16, 10))
+    fig2 = plt.figure(figsize=(12, 8))
     fig2 = make_subplots(rows=2, cols=1)
     # price Line
     fig2.add_trace(go.Scatter(x=df.index, y=df['open'], line=dict(color='#ff9900', width=1),
@@ -281,7 +282,7 @@ st.write("training data: ", data_training.shape)
 st.write("testing data: ", data_testing.shape)
 
 # scaling of data using min max scaler (0,1)
-from sklearn.preprocessing import MinMaxScaler
+
 
 scaler = MinMaxScaler(feature_range=(0, 1))
 
@@ -347,7 +348,7 @@ if result:
     my_time = datetime.min.time()
     date1 = datetime.combine(date1, my_time)
     # date1=str(date1)
-    # date1=dt.datetime.strptime(time_str,"%Y-%m-%d")
+    # date1=dt.datetime.pastime(time_str,"%Y-%m-%d")
 
     nDay = date1 - datemax
     nDay = nDay.days
@@ -358,9 +359,9 @@ if result:
     n_steps = x_input.shape[1]
     i = 0
 
-    while (i <= nDay):
+    while i <= nDay:
 
-        if (len(temp_input) > n_steps):
+        if len(temp_input) > n_steps:
             # print(temp_input)
             x_input = np.array(temp_input[1:])
             print("{} day input {}".format(i, x_input))
