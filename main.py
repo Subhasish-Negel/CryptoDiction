@@ -85,8 +85,6 @@ TODAY = st.date_input('End(Today)', value=pd.to_datetime("today"))
 
 stock_info = yf.Ticker(user_input).fast_info
 
-# stock_info.keys() for other properties you can explore
-
 
 st.subheader(user_input)
 
@@ -100,14 +98,13 @@ def load_data(user_input):
 
 df = load_data(user_input)
 
-# describing data
 
 st.subheader('Data from 2017-2023')
-# df= df.reset_index()
+
 
 st.write(df.tail(10))
 st.write(df.describe())
-# Force lowercase (optional)
+# lowercase (optional)
 df.columns = [x.lower() for x in df.columns]
 
 st.subheader('Technical Analysis')
@@ -289,7 +286,7 @@ scaler = MinMaxScaler(feature_range=(0, 1))
 data_training_array = scaler.fit_transform(data_training)
 
 # Load model
-model = load_model("keras_model.h5")
+model = load_model("model.h5")
 
 # testing part
 past_100_days = data_training.tail(30)
