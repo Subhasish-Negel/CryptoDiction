@@ -16,12 +16,12 @@ st.set_page_config(page_title='CryptoPredict 2.0', page_icon=':chart_with_upward
 st.title('CryptoDiction: CryptoPredict v2')
 st.subheader('Technical Analysis on Crypto Currency Prices & Prediction App')
 
-stocks = ['^GSPC', 'BTC-USD', 'ETH-USD', 'BNB-USD', 'SOL-USD', 'ADA-USD', 'XRP-USD', 'DOT-USD', 'DOGE-USD',
+stocks = ['BTC-USD', 'ETH-USD', 'BNB-USD', 'SOL-USD', 'ADA-USD', 'XRP-USD', 'DOT-USD', 'DOGE-USD',
           'AVAX-USD', 'LTC-USD', 'MATIC-USD', 'SHIB-USD', 'JPM', 'BRK.A', 'BRK.B', 'WMT', 'MCD',
           'HD', 'INTC', 'HON', 'META', 'NVDA', 'JNJ', 'PG', 'PFE', 'AAPL', 'MSFT', 'GOOGL', 'AMZN',
           'TSLA', 'BABA', 'TCEHY', 'SSNLF', 'V', 'MA', 'PYPL']
 
-user_input = st.selectbox('Enter Stock Ticker', stocks)
+
 
 st.markdown('#')
 
@@ -80,8 +80,14 @@ with st.expander("Click Here to See Tickers of Most of the Popular Crypto Curren
     | Pfizer Inc. | PFE |
     """)
 
-START = st.date_input('Start', value=pd.to_datetime("2017-01-01"))
-TODAY = st.date_input('End(Today)', value=pd.to_datetime("today"))
+user_input = st.selectbox('Enter Stock Ticker', stocks)
+
+st.markdown('# ')
+
+st.markdown('##### Select The Date Range For Technical Analysis')
+
+START = st.date_input('START:', value=pd.to_datetime("2017-01-01"))
+TODAY = st.date_input('END (Today):', value=pd.to_datetime("today"))
 
 stock_info = yf.Ticker(user_input).fast_info
 
@@ -160,7 +166,7 @@ elif infoType == 'Stochastic Oscillator':
     # Force lowercase (optional)
     df.columns = [x.lower() for x in df.columns]
     # Construct a 2 x 1 Plotly figure
-    fig2 = plt.figure(figsize=(12, 6))
+    fig2 = plt.figure(figsize=(12, 8))
     fig2 = make_subplots(rows=2, cols=1)
     # price Line
     fig2.add_trace(go.Scatter(x=df.index, y=df['open'], line=dict(color='#ff9900', width=1),
@@ -168,7 +174,7 @@ elif infoType == 'Stochastic Oscillator':
 
     # Candlestick chart for pricing
     fig2.add_trace(go.Candlestick(x=df.index, open=df['open'], high=df['high'], low=df['low'],
-                                  close=df['close'], increasing_line_color='#ff9900', decreasing_line_color='black',
+                                  close=df['close'], increasing_line_color='#ff9900', decreasing_line_color='red',
                                   showlegend=False), row=1, col=1)
 
     # Fast Signal (%k)
@@ -191,7 +197,7 @@ elif infoType == 'Stochastic Oscillator':
                        width=1000,
                        height=1000, plot_bgcolor='#efefef',
                        # Font Families
-                       font_family='Monospace', font_color='#ffffff', font_size=15,
+                       font_family='Monospace', font_color='#ffffff', font_size=20,
                        xaxis=dict(
                            rangeslider=dict(visible=True)))
 
