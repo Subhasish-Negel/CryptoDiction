@@ -16,7 +16,7 @@ st.set_page_config(page_title='CryptoPredict 2.0', page_icon=':chart_with_upward
 st.title('CryptoDiction: CryptoPredict v2')
 st.subheader('Technical Analysis on Crypto Currency Prices & Prediction App')
 
-stocks = ['BTC-USD', 'ETH-USD', 'BNB-USD', 'SOL-USD', 'ADA-USD', 'XRP-USD', 'DOT-USD', 'DOGE-USD',
+stocks = ['^GSPC', 'BTC-USD', 'ETH-USD', 'BNB-USD', 'SOL-USD', 'ADA-USD', 'XRP-USD', 'DOT-USD', 'DOGE-USD',
           'AVAX-USD', 'LTC-USD', 'MATIC-USD', 'SHIB-USD', 'JPM', 'BRK.A', 'BRK.B', 'WMT', 'MCD',
           'HD', 'INTC', 'HON', 'META', 'NVDA', 'JNJ', 'PG', 'PFE', 'AAPL', 'MSFT', 'GOOGL', 'AMZN',
           'TSLA', 'BABA', 'TCEHY', 'SSNLF', 'V', 'MA', 'PYPL']
