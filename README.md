@@ -20,7 +20,7 @@ The webapp now offers various technical analysis charts, including:
 
 **Prediction vs. Original Difference**
 
-CryptoPredict v2.0 also allows users to see the difference between the predicted and original prices of a stock or crypto currency. This feature helps users understand the accuracy of the predictions and make better investment decisions.
+> CryptoPredict v2.0 also allows users to see the difference between the predicted and original prices of a stock or crypto currency. This feature helps users understand the accuracy of the predictions and make better investment decisions.
 
 **How to use**
 
