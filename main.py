@@ -108,7 +108,7 @@ df = load_data(user_input)
 
 # describing data
 
-st.subheader('Data from 2017-2023')
+st.subheader('Data Range 2017-Today')
 # df= df.reset_index()
 
 st.write(df.tail(10))
@@ -295,7 +295,7 @@ scaler = MinMaxScaler(feature_range=(0, 1))
 data_training_array = scaler.fit_transform(data_training)
 
 # Load model
-model = load_model("lstm_model_2.h5")
+model = load_model("lstm_model_3.keras")
 
 # testing part
 past_100_days = data_training.tail(30)
