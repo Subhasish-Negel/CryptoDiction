@@ -295,7 +295,7 @@ scaler = MinMaxScaler(feature_range=(0, 1))
 data_training_array = scaler.fit_transform(data_training)
 
 # Load model
-model = load_model("lstm_model_3.keras")
+model = load_model("lstm_model_3.h5")
 
 # testing part
 past_100_days = data_training.tail(30)
