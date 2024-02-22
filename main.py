@@ -337,6 +337,7 @@ st.subheader('Stock Price Prediction by Date')
 df1 = df.reset_index()['close']
 scaler = MinMaxScaler(feature_range=(0, 1))
 df1 = scaler.fit_transform(np.array(df1).reshape(-1, 1))
+
 # datemax="24/06/2022"
 datemax = dt.datetime.strftime(dt.datetime.now() - timedelta(1), "%d/%m/%Y")
 datemax = dt.datetime.strptime(datemax, "%d/%m/%Y")
